@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Home | Will Do</title>
+    <meta name="description" content="A To-Do-Like Front-End Web App to manage your day-to-day tasks, chores, duties, etc">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme" content="#ee0979" />
+
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="./style/app.css">
+
+    <!--Script File-->
+    <script src="./script/app.min.js" async='false'></script>
+</head>
+
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div id="newUser">
+        <form id="newUserForm" onsubmit="addNewUser(event)">
+            <p class="lead">Welcome To Will-Do, a to-do like front-end based Web App..Fill In Your Detail Below To Continue
+            </p>
+            <input placeholder="Please Enter Your First or Nickname" type="text" minlength="2" maxlength='16' name="username">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="page-wrapper">
+        <header>
+            <div class="logo">
+                <span class="logo-inner">
+                    <a href="#">
+                        <i class="mdi mdi-clipboard-text-multiple-outline" aria-hidden="true"></i>Will-Do
+                    </a>
+                </span>
+                <span class="searchbox">
+                    <input type="search" role="search" placeholder="Find Will-Do..." oninput="search(this.value)">
+                </span>
+            </div>
+            <div class="right-div">
+                <button class="search-btn" onclick="toggleSearchbox()">
+                    <span class="mdi mdi-magnify mdi-36px"></span>
+                </button>
+                <button class="hamburger">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </button>
+                <div class="drop-menu">
+                    <div class="profile-tab">
+                        <i class="user-icon mdi mdi-account-heart"></i>
+                        <div class="username"></div>
+                        <sup onclick='editUsername()'><i class="edit-btn mdi mdi-pencil mdi-24px"></i></sup>
+                    </div>
+                    <ul>
+                        <li>
+                            <a onclick="alert('Feature Coming Soon...')"><span><i class="mdi mdi-sync mdi-spin"></i> Sync</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a id="visitDone"><span><i class="mdi mdi-check-all"></i> Done Will-Dos</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a onclick="wipeData()"><span><i class="mdi mdi-delete-forever"></i> Wipe Data</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a id="visitTrash"><span><i class="mdi mdi-delete-variant"></i> Visit Trash</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a onclick="alert('Will-Do, is a To-do like web app with difference, works as basic to-do list app, but with additional features.\n\nUSAGE::\nUse the big circle + button to display a form for adding new will-do, star-rate the Will-Do importance with an input range, view the time it was added after the clock icon\nuse the edit icon to edit will-do text, trash icon to delete, and check icon when you have completed the will-do. View Deleted and Completed will-dos from the drop-menu.')"><span><i class="mdi mdi-information"></i> App Guide</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                        <li>
+                            <a onclick="alert('Developed With Love By dev Stanley (Devvie)....\nApp Version: V.1.0\nCheck <github.com/stanley19/will-do-app> to view project\n\nThanks For Using...')"><span><i class="mdi mdi-laptop-windows"></i> Developer</span><i
+                                    class="mdi mdi-chevron-right" aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        <section class="top-tab">
+            <div class="greet-pane">
+                <i class="mdi mdi-heart-multiple" aria-hidden="true"></i>
+                <span id="greeting"></span>
+            </div>
+            <div class="sort-pane">
+                <i class="mdi mdi-home mdi-24px" onclick='location.reload()'></i>
+                <button class="sort-btn" onclick="toggleSortMenu()">Sort&ensp;<i class="mdi mdi-sort"
+                        aria-hidden="true"></i>
+                </button>
+                <div class="sort-menu">
+                    <div id="alp" class="alpha-sort" onclick="sort('text','alp')">
+                        <span>Alphabetically </span>&ensp;<span><input type="radio" name="sortRadio"></span>
+                    </div>
+                    <div id="dte" class="date-sort" onclick="sort('date','dte')">
+                        <span> By date added </span>&ensp; <span><input type="radio" 
+                                name="sortRadio"></span>
+                    </div>
+                    <div id="imp" class="importance-sort" onclick="sort('importance','imp')">
+                        <span> By Importance </span>&ensp; <span><input type="radio" name="sortRadio"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="lead will-do-count"></div>
+        <main class="main-content">
+            <ul class="will-do-list">
+
+            </ul>
+        </main>
+        <footer class="floating-bottom-tab">
+            <form class="adding-form">
+                <div class="top-tab">
+                    <span class="form-label">
+                        <i class="mdi mdi-adjust"></i>
+                        Add New Will-Do
+                        <i class="mdi mdi-adjust"></i>
+                    </span>
+                </div>
+                <textarea class="text-input" name="willdoTxt" placeholder="Enter Will-Do Text Here...."></textarea>
+                <div class="bottom-tab">
+                    <div class="rating">
+                        <div id="rate-txt">*Rate Importance</div>
+                        <input oninput="showRate(this.value)" type="range" value="0.5" max='5' min="0.5" step="0.5" name="rateRange">
+                        <div id="rate-value"></div>
+
+                    </div>
+                    <div class="submit">
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <span class="add-btn" onclick="toggleAddForm()">
+                <i class="mdi mdi-plus-circle"></i>
+            </span>
+        </footer>
+    </div>
+</body>
+
+</html>

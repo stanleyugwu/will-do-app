@@ -1,0 +1,32 @@
+@mixin gradient($where, $deg:90deg) {
+    @if $where=='background' {
+        background: linear-gradient($deg, #ff0979, #ff6a00)
+    }
+    @else if $where=='color' {
+        color: linear-gradient($deg, #ff0979, #ff6a00)
+    }
+}
+
+@mixin lift($px:1, $color:black) {
+    box-shadow: $px +px $px +px 6px $px +px $color;
+}
+
+@mixin format($dis:flex, $justify:between) {
+    margin: auto;
+    position: relative;
+    display: $dis;
+    width: 100%;
+    justify-content: space- + $justify;
+}
+
+@mixin transit($prop:all) {
+    transition: $prop 0.3s ease-in-out;
+}
+
+@mixin btnx($padding:1%, $col:white) {
+    background: transparent;
+    border: none;
+    padding: $padding;
+    outline: none;
+    color: $col;
+}

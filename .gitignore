@@ -1,0 +1,14 @@
+## Ignore gulpfile
+##gulpfile.js
+
+## Ignore .json
+##*.json
+
+## Ignore vscode
+/.vscode/
+
+## Ignore node_modules
+/node_modules/
+
+## Ignore Self
+#.gitignore

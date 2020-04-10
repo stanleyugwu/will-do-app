@@ -1,0 +1,58 @@
+@media screen and (max-width: 480px) {
+    .page-wrapper {
+        header {
+            .logo {
+                .searchbox {
+                    top: 11px;
+                    width: 66%;
+                    left: 4%;
+                    input {
+                        border-radius: 0.3rem;
+                        border: $border;
+                    }
+                }
+            }
+        }
+        section.top-tab {
+            div.sort-pane {
+                button {
+                    font-size: 1rem;
+                    font-weight: 700;
+                }
+                .sort-menu {
+                    width: 55%;
+                    font-weight: 520;
+                }
+            }
+        }
+        .main-content {
+            .will-do-list {
+                .will-do {
+                    width: 90%;
+                }
+            }
+        }
+        .floating-bottom-tab form.adding-form {
+            width: 90%;
+        }
+    }
+}
+
+@media screen and (max-width: 761px) {
+    body {
+        #newUser {
+            form {
+                width: 90%;
+                input {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 501px) {
+    body .page-wrapper header {
+        width: 501px;
+    }
+}

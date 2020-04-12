@@ -41,14 +41,21 @@ function compareValues(key) {
 } /**Sorting ends */
 
 let dbInUse = 'db';
+if (!localStorage.getItem('willdo.checked')) {
+    let def = 'imp';
+    store('willdo.checked', def, true);
+}
+if (!localStorage.getItem('willdo.sort')) {
+    store('willdo.sort', 'importance');
+}
 
 const db = get('willdo.db', true) || store('willdo.db', [], true);
 db.sort(compareValues(get('willdo.sort')));
 
-const dbTrash = get('willdo.trash', true);
+const dbTrash = get('willdo.trash', true) || store('willdo.trash', [], true);
 dbTrash.sort(compareValues(get('willdo.sort')));
 
-const dbCompleted = get('willdo.completed', true);
+const dbCompleted = get('willdo.completed', true) || store('willdo.completed', [], true);
 dbCompleted.sort(compareValues(get('willdo.sort')));
 
 
@@ -64,7 +71,10 @@ window.onload = function() {
         $('main.main-content').html(
             '<div style="position:sticky;margin-top:180px;display:flex;justify-content:space-around;flex-direction:column;align-content:space-around;"><h2 style="display:block;width:100%;color:orange;text-align:center;clear:both">NOTHING TO DO!!</h2><h1 style="color:orange;font-size:5rem;text-align:center;"><i class ="mdi mdi-emoticon-frown"></i></h1><i style="text-align:center;color:orange;font-size:3rem;margin:3.5rem auto;display:block;" class="mdi mdi-arrow-down-bold"></i></div>'
         );
-        $('.sort-pane').hide();
+        $('.sort-pane').hide(300);
+    }
+    if (db.length == 1) {
+        $('.sort-pane').hide(300);
     }
 }
 
@@ -391,7 +401,7 @@ function showRate(val) {
 function checked() {
     let radios = document.querySelectorAll('.sort-menu > div');
     for (div of radios) {
-        if (div.id == get('willdo.checked', false)) {
+        if (div.id == get('willdo.checked', true)) {
             div.querySelector('input').setAttribute('checked', 'checked')
         }
     }
@@ -399,7 +409,7 @@ function checked() {
 checked();
 
 function sort(key, check) {
-    store('willdo.checked', check)
+    store('willdo.checked', check, true)
     store('willdo.sort', key)
     location.reload();
 }
@@ -3564,7 +3574,7 @@ function toggleSortMenu() {
 function toggleAddForm() {
     var form = $('.floating-bottom-tab form.adding-form');
     $(form).slideToggle().toggleClass('animated swing');
-    $('.adding-form textarea.text-input').focus();
+    setTimeout(() => { $('.adding-form textarea.text-input').focus() }, 1500);
     var addBtn = document.querySelector(".add-btn i");
     if (addBtn.classList.contains('mdi-plus-circle')) {
         $(addBtn).css('transform', 'rotate(360deg)')

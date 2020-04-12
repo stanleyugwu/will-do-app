@@ -31,7 +31,7 @@ function compareValues(key) {
 
 let dbInUse = 'db';
 
-const db = get('willdo.db', true);
+const db = get('willdo.db', true) || store('willdo.db', [], true);
 db.sort(compareValues(get('willdo.sort')));
 
 const dbTrash = get('willdo.trash', true);
@@ -51,7 +51,7 @@ window.onload = function() {
     if (db.length == 0) {
         $('.main-content').css('display', 'block');
         $('main.main-content').html(
-            '<h1 style="display:block;width:100%;color:orange;text-align:center;clear:both">NO TASKS YET!! SO SAD!!</h1><h1 style="color:orange;font-size:8rem;text-align:center;"><i class ="mdi mdi-emoticon-frown"></i></h1><i style="text-align:center;color:orange;font-size:5rem;margin:auto;display:block;" class="mdi mdi-arrow-down-bold"></i>'
+            '<div style="position:sticky;margin-top:180px;display:flex;justify-content:space-around;flex-direction:column;align-content:space-around;"><h2 style="display:block;width:100%;color:orange;text-align:center;clear:both">NOTHING TO DO!!</h2><h1 style="color:orange;font-size:5rem;text-align:center;"><i class ="mdi mdi-emoticon-frown"></i></h1><i style="text-align:center;color:orange;font-size:3rem;margin:3.5rem auto;display:block;" class="mdi mdi-arrow-down-bold"></i></div>'
         );
         $('.sort-pane').hide();
     }
@@ -90,7 +90,9 @@ function store(key, value, stringify = false) {
 }
 
 function get(key, parse = false) {
-    return (parse) ? JSON.parse(localStorage.getItem(key)) : localStorage.getItem(key);
+    if (localStorage.getItem(key)) {
+        return (parse) ? JSON.parse(localStorage.getItem(key)) : localStorage.getItem(key);
+    }
 }
 
 function editUsername() {

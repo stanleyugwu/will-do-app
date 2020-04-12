@@ -305,7 +305,7 @@
             section.top-tab {
                 @include format(flex,
                 between);
-                position: sticky;
+                position: absolute;
                 top: 55px;
                 background: white;
                 z-index: 999;
@@ -479,10 +479,10 @@
                 }
             }
             .will-do-count {
-                margin-top: 65px;
+                top: 110px;
                 padding: 0 2.5%;
                 background: white;
-                position: fixed;
+                position: absolute;
                 font-size: 1.1rem;
                 font-variant: small-caps;
                 color: $black + cc;

@@ -18,6 +18,7 @@
         "aos": "^2.3.4",
         "bootstrap": "^4.4.1",
         "bootstrap-sass": "^3.4.1",
+        "curl": "^0.1.4",
         "gulp-autoprefixer": "^7.0.1",
         "gulp-concat": "^2.6.1",
         "gulp-rename": "^2.0.0",

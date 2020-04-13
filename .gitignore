@@ -8,7 +8,7 @@
 /.vscode/
 
 ## Ignore node_modules
-/node_modules/
+node_modules/
 
 ## Ignore Self
 #.gitignore

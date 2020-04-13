@@ -41099,7 +41099,7 @@ body #newUser {
   background: #000000f1;
   width: 100%;
   position: absolute;
-  z-index: 9999;
+  z-index: 99999;
   top: 0;
   left: 0;
   right: 0;

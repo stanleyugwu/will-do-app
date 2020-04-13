@@ -3574,7 +3574,7 @@ function toggleSortMenu() {
 function toggleAddForm() {
     var form = $('.floating-bottom-tab form.adding-form');
     $(form).slideToggle().toggleClass('animated swing');
-    setTimeout(() => { $('.adding-form textarea.text-input').focus() }, 1500);
+    setTimeout(()=>{$('.adding-form textarea.text-input').focus()},1500);
     var addBtn = document.querySelector(".add-btn i");
     if (addBtn.classList.contains('mdi-plus-circle')) {
         $(addBtn).css('transform', 'rotate(360deg)')

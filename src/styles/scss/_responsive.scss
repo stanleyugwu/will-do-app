@@ -1,19 +1,44 @@
 @media screen and (max-width: 480px) {
+    body {
+        overflow-y: auto;
+    }
     .page-wrapper {
         header {
             .logo {
+                .logo-inner {
+                    font-size: 2.2rem;
+                    i {
+                        font-size: 2.6rem;
+                    }
+                }
                 .searchbox {
                     top: 11px;
-                    width: 0px;
                     left: 4%;
+                    width: 0;
                     input {
+                        width: 110%;
                         border-radius: 0.3rem;
-                        border: $border;
+                    }
+                }
+            }
+            .right-div {
+                button.search-btn {
+                    span {
+                        font-size: 30px;
+                    }
+                }
+                button.hamburger {
+                    div {
+                        width: 31px;
+                        &:nth-child(2) {
+                            width: 22px;
+                        }
                     }
                 }
             }
         }
         section.top-tab {
+            top: 2.9rem;
             div.sort-pane {
                 button {
                     font-size: 1rem;
@@ -24,6 +49,9 @@
                     font-weight: 520;
                 }
             }
+        }
+        .will-do-count {
+            top: 6rem;
         }
         .main-content {
             .will-do-list {

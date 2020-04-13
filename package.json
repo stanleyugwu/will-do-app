@@ -4,7 +4,7 @@
     "description": "To-Do list similar web app",
     "main": "gulpfile.js",
     "scripts": {
-        "build": "gulp prefix && gulp conc && gulp build",
+        "build": "gulp conc && gulp build && gulp prefix",
         "watchSass": "sass --watch src/styles/app.scss src/styles/app.css"
     },
     "author": "Stan",

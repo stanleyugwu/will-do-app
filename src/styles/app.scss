@@ -85,6 +85,7 @@
             overflow: hidden;
             font-family: $sans, $serif;
             font-weight: 300;
+            line-height: unset;
             font-size: 100%;
             font-size: 1.24rem;
             #newUser {
@@ -136,7 +137,8 @@
             @include format(block);
             @include lift();
             max-width: 500px;
-            height: 600px;
+            height: 630px;
+            max-height: 650px;
             background: white;
             overflow-y: auto;
             overflow-x: hidden;
@@ -169,7 +171,7 @@
                         @include transit();
                         position: absolute;
                         left: 11%;
-                        top: 10px;
+                        top: 15px;
                         display: inline;
                         width: 0%;
                         input {
@@ -305,7 +307,7 @@
             section.top-tab {
                 @include format(flex,
                 between);
-                position: absolute;
+                position: sticky;
                 top: 55px;
                 background: white;
                 z-index: 999;
@@ -479,10 +481,10 @@
                 }
             }
             .will-do-count {
-                top: 110px;
+                top: 7rem;
                 padding: 0 2.5%;
                 background: white;
-                position: absolute;
+                position: sticky;
                 font-size: 1.1rem;
                 font-variant: small-caps;
                 color: $black + cc;
@@ -493,7 +495,7 @@
             .main-content {
                 @include format(flex,
                 around);
-                margin-top: 23%;
+                margin-top: 6rem;
                 .will-do-list {
                     list-style-type: none;
                     display: block;

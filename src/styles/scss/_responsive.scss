@@ -35,6 +35,11 @@
                         }
                     }
                 }
+                button.hamburger.open {
+                    div {
+                        margin-top: -20%;
+                    }
+                }
             }
         }
         section.top-tab {

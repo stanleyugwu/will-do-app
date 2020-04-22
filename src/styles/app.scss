@@ -4,6 +4,7 @@
         @import "scss/mixins";
         @import "scss/formats";
         @import "scss/typo";
+        @import '../../node_modules/normalize.css/normalize';
         @keyframes bounce {
             40% {
                 margin-top: 0px;
